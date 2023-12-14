@@ -10,12 +10,14 @@ import useAuthStore from "./store/authStore";
 
 function App() {
     const [authUser] = useAuthState(auth);
+    const user = useAuthStore(state => state.user);
+    const isUserAuth = authUser && user;
 
     return (
         <PageLayout>
             <Routes>
-                <Route path="/" element={authUser ? <HomaPage /> : <Navigate to="/auth" />} />
-                <Route path="/auth" element={!authUser ? <AuthPage /> : <Navigate to="/" />} />
+                <Route path="/" element={isUserAuth ? <HomaPage /> : <Navigate to="/auth" />} />
+                <Route path="/auth" element={!isUserAuth ? <AuthPage /> : <Navigate to="/" />} />
                 <Route path="/:username" element={<ProfilePage />} />
             </Routes>
         </PageLayout>
