@@ -4,7 +4,7 @@
     "semi": true,
     "sigleQuote": false,
     "bracketSpacing": true,
-    "bracketSameLine": true,
+    "bracketSameLine": false,
     "printWidth": 120,
     "arrowParens": "avoid"
 }
